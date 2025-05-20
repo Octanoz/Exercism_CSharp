@@ -1,0 +1,38 @@
+#!meta
+
+{"kernelInfo":{"defaultKernelName":"csharp","items":[{"name":"csharp","languageName":"csharp"},{"name":"fsharp","languageName":"F#","aliases":["f#","fs"]},{"name":"html","languageName":"HTML"},{"name":"http","languageName":"HTTP"},{"name":"javascript","languageName":"JavaScript","aliases":["js"]},{"name":"mermaid","languageName":"Mermaid"},{"name":"pwsh","languageName":"PowerShell","aliases":["powershell"]},{"name":"value"}]}}
+
+#!csharp
+
+using System.Linq;
+using System.Collections.Generic;
+
+Dictionary<int, string[]> originalScores = new()
+{
+    [1] = ["A", "E", "I", "O", "U", "L", "N", "R", "S", "T"],
+    [2] = ["D", "G"],
+    [3] = ["B", "C", "M", "P"],
+    [4] = ["F", "H", "V", "W", "Y"],
+    [5] = ["K"],
+    [8] = ["J", "X"],
+    [10] = ["Q", "Z"]
+};
+
+public static Dictionary<string, int> ConvertToDictionary(Dictionary<int, string[]> input) =>
+    input.SelectMany(kvp => kvp.Value.Select(letter => (Key: letter.ToLower(), Value: kvp.Key)))
+         .ToDictionary(item => item.Key, item => item.Value);
+
+Dictionary<string, int> newScores = ConvertToDictionary(originalScores);
+newScores.Display();
+
+var keys = originalScores.Keys;
+keys.Display();
+List<(string, int)> kvpList = [];
+foreach (var key in keys)
+{
+    kvpList.AddRange(originalScores[key].Select(c => (c.ToLower(), key)).ToArray());
+}
+
+Dictionary<string, int> convertedDictionary = kvpList.ToDictionary(kvp => kvp.Item1, kvp => kvp.Item2);
+convertedDictionary.Display();
+// kvpList.Display();

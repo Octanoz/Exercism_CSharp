@@ -1,0 +1,28 @@
+#!meta
+
+{"kernelInfo":{"defaultKernelName":"csharp","items":[{"name":"csharp","languageName":"csharp"},{"name":"fsharp","languageName":"F#","aliases":["f#","fs"]},{"name":"html","languageName":"HTML"},{"name":"http","languageName":"HTTP"},{"name":"javascript","languageName":"JavaScript","aliases":["js"]},{"name":"mermaid","languageName":"Mermaid"},{"name":"pwsh","languageName":"PowerShell","aliases":["powershell"]},{"name":"value"}]}}
+
+#!csharp
+
+var nums = Enumerable.Range(0, 10).Select(n => (char)(n + '0')).ToList();
+
+nums.ForEach(Console.WriteLine);
+
+#!csharp
+
+using System.Text.RegularExpressions;
+
+string splitter = @"(plus|minus|multiplied by|divided by)";
+string testString = "What is 2 plus 3 multiplied by 4 minus 5?";
+
+int startIndex = testString.IndexOf(testString.FirstOrDefault(nums.Contains));
+int endIndex = testString.LastIndexOf(testString.LastOrDefault(nums.Contains));
+var parts = Regex.Split(testString[startIndex..(endIndex + 1)], splitter).Select(s => s.Trim()).ToArray();
+
+parts.Display();
+
+#!csharp
+
+var nums = Enumerable.Range(0, 10).Select(n => (char)(n + '0')).ToList();
+
+nums.ForEach(Console.WriteLine);
