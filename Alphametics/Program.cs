@@ -1,4 +1,6 @@
-﻿using Alphametics;
+﻿using Alphametics.Processing;
+
+using static Alphametics.HelperMethods.Helpers;
 
 string[][] numbers =
 [
@@ -10,11 +12,9 @@ string[][] numbers =
 for (int i = 0; i < numbers.Length; i++)
 {
     int[] output = Assigner.AssignNumbers(numbers[i][0], numbers[i][1], numbers[i][2]);
-    Assigner.ResetCollections();
+    ResetCollections();
     if (output is not [])
     {
-        // var result = output.ToList();
-        // result.ForEach(Console.WriteLine);
         Console.WriteLine(FormatResult(numbers[i], output));
     }
     else Console.WriteLine("Empty result");

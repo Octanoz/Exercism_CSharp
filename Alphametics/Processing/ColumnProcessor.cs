@@ -3,7 +3,7 @@ namespace Alphametics.Processing;
 using static Alphametics.Assignment.AssignmentManager;
 using static Alphametics.HelperMethods.Helpers;
 
-public static class ColumnProcessor
+internal static class ColumnProcessor
 {
     internal static bool ProcessColumn(char[] column, (int, int, int) combo, int fromEnd, int carryOver)
     {

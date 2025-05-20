@@ -3,7 +3,7 @@ namespace Alphametics.Validation;
 using Alphametics.Processing;
 using static Alphametics.HelperMethods.Helpers;
 
-public static class Validator
+internal static class Validator
 {
     internal static bool ValidAssigned()
     {

@@ -3,7 +3,7 @@ namespace Alphametics.Tests;
 using Alphametics.Processing;
 using Alphametics.Processing.PartialProcessing;
 using static Alphametics.Assignment.AssignmentManager;
-using static Alphametics.Validation.Validator;
+using Alphametics.Validation;
 using static Alphametics.HelperMethods.Helpers;
 
 [Collection("Sequential")]
@@ -203,7 +203,7 @@ public class AlphameticsTests
         AssignColumn(ColumnCharacters(1), (1, 2, 3));
 
         // Act
-        bool result = ValidAssigned();
+        bool result = Validator.ValidAssigned();
 
         // Assert
         Assert.True(result);

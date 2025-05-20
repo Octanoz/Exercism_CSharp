@@ -3,7 +3,7 @@ namespace Alphametics.Processing.PartialProcessing;
 using Alphametics.Processing;
 using static Alphametics.HelperMethods.Helpers;
 
-public static class PartialValueGenerator
+internal static class PartialValueGenerator
 {
     internal static IEnumerable<(int, int, int)> ReducedSet(char[] column, int[] setIndices, int carryOver)
     {

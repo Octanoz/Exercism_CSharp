@@ -2,7 +2,7 @@ namespace Alphametics.Processing;
 
 using static Alphametics.HelperMethods.Helpers;
 
-public static class ValueGenerator
+internal static class ValueGenerator
 {
     internal static IEnumerable<(int, int, int)> NoneSet(char[] column, int carryOver)
     {

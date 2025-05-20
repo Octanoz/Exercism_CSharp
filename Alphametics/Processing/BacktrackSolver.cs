@@ -4,7 +4,7 @@ using Alphametics.Processing.PartialProcessing;
 using Alphametics.Validation;
 using static Alphametics.HelperMethods.Helpers;
 
-public static class BacktrackSolver
+internal static class BacktrackSolver
 {
     internal static bool Backtrack(int fromEnd, int carryOver = 0)
     {
@@ -28,11 +28,11 @@ public static class BacktrackSolver
             [-1, -1, -1] => ValueGenerator.NoneSet(column, carryOver)
                             .Any(combo => ColumnProcessor.ProcessColumn(column, combo, fromEnd, carryOver)),
 
-            ([_, -1, -1]) or ([-1, _, -1]) or ([-1, -1, _]) => ValueGenerator.OneSet(column, setIndices, carryOver)
-                                                               .Any(combo => ColumnProcessor.ProcessColumn(column, combo, fromEnd, carryOver)),
+            [_, -1, -1] or [-1, _, -1] or [-1, -1, _] => ValueGenerator.OneSet(column, setIndices, carryOver)
+                                                         .Any(combo => ColumnProcessor.ProcessColumn(column, combo, fromEnd, carryOver)),
 
-            ([-1, _, _]) or ([_, -1, _]) or ([_, _, -1]) => ValueGenerator.TwoSet(setIndices, carryOver)
-                                                            .Any(combo => ColumnProcessor.ProcessColumn(column, combo, fromEnd, carryOver)),
+            [-1, _, _] or [_, -1, _] or [_, _, -1] => ValueGenerator.TwoSet(setIndices, carryOver)
+                                                      .Any(combo => ColumnProcessor.ProcessColumn(column, combo, fromEnd, carryOver)),
             _ => false,
         };
     }

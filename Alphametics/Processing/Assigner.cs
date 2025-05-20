@@ -1,6 +1,5 @@
 namespace Alphametics.Processing;
 
-using static Alphametics.Validation.Validator;
 using static Alphametics.Assignment.AssignmentManager;
 using static Alphametics.HelperMethods.Helpers;
 

@@ -4,7 +4,7 @@ using Alphametics.Processing;
 using Alphametics.Assignment;
 using static Alphametics.HelperMethods.Helpers;
 
-public static class PartialColumnProcessor
+internal static class PartialColumnProcessor
 {
     internal static bool ProcessPartialColumn(char[] column, (int first, int second, int result) combo, int fromEnd, int carryOver)
     {

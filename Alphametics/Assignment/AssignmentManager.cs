@@ -3,7 +3,7 @@ namespace Alphametics.Assignment;
 using Alphametics.Processing;
 using static Alphametics.HelperMethods.Helpers;
 
-public static class AssignmentManager
+internal static class AssignmentManager
 {
     internal static bool Assign(char c, int index)
     {
